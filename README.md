@@ -289,6 +289,12 @@ Date:   Thu Aug 27 12:42:29 2020 +0530
     first-commit
 ```
 
+## Enhancing .gitignore
+
+There are bunch of other files/folder we do not want to track. Typical patterns
+are provided in [.gitignore](.gitignore). Copy the contents of this file
+to your .gitignore. Then commit the changes
+
 ## Install Flask dependency
 
 ```bash
