@@ -54,3 +54,6 @@ coverage.xml
 docs/_build/
 
 *.DS_Store
+
+# Notebooks
+.ipynb_checkpoints/

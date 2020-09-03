@@ -3,5 +3,6 @@
         "drwxr",
         "venv",
         "virtualenv"
-    ]
+    ],
+    "python.formatting.provider": "black"
 }
