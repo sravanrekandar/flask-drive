@@ -337,13 +337,16 @@ Werkzeug==1.0.1
 
 ## Starting Flask script
 
-Create ```app.py``` and enter the below contents
+- Create ```app``` folder
+Create ```app/run.py``` and enter the below contents
 
 ```bash
-$ touch app.py
+$ mkdir app
+$ touch app/run.py
 ```
 
-```text
+```python
+# app/run.py
 from flask import Flask
 app = Flask(__name__)
 
@@ -364,7 +367,7 @@ if __name__ == '__main__':
 ## Start Flask server app
 
 ```bash
-$ python app.py
+$ python app/run.py
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
@@ -492,7 +495,7 @@ $ source env/bin/activate
 ## Starting the application
 
 ```bash
-(env) $ python app.py
+(env) $ python app/run.py
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
