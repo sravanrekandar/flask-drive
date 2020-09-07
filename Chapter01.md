@@ -1,4 +1,4 @@
-# Flask-Drive Class 01
+# Flask-Drive Chapter 01
 
 ## Create basic application and upload to github
 
