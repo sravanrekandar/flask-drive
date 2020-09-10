@@ -25,7 +25,7 @@ def home():
             <body>
                 {nav}
                 <h1>{title}</h1>
-                <p>This is home page</p>
+                <p>This is good home page.</p>
             </body>
         </html>
     """

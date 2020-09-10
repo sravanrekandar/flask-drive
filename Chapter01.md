@@ -1,8 +1,6 @@
-# Flask-Drive Chapter 01
+# Flask-Drive Chapter 01: Create basic application and upload to github
 
-## Create basic application and upload to github
-
-### Create a directory for your experiment
+## Create a directory for your experiment
 
 ```bash
 $ mkdir flask-drive
@@ -10,21 +8,21 @@ $ mkdir flask-drive
 $ cd flask-drive
 ```
 
-### Initiate Git repository
+## Initiate Git repository
 
 ```bash
 $ git init
 ```
 
-### Create README.md and enter some text in the file
+## Create README.md and enter some text in the file
 
 ```bash
 $ touch README.md
 ```
 
-### Check the available files in your folder(aka directory)
+## Check the available files in your folder(aka directory)
 
-#### list all contents with details
+### list all contents with details
 
 ```bash
 $ ls -la
@@ -34,14 +32,14 @@ drwxr-xr-x  10 sravan  staff   320 Aug 27 12:32 .git
 -rw-r--r--   1 sravan  staff    95 Aug 27 12:33 README.md
 ```
 
-#### list all files/folders
+### list all files/folders
 
 ```bash
 $ ls -a
 .    ..    .git    README.md
 ```
 
-#### list on the file names in multiple lines
+### list on the file names in multiple lines
 
 ```bash
 $ ls -a | awk '{print $NF}'
@@ -51,7 +49,7 @@ $ ls -a | awk '{print $NF}'
 README.md
 ```
 
-#### List the contents of .git/
+### List the contents of .git/
 
 These files/folders in .git/ are created when you ran ```git int``` command
 
@@ -69,9 +67,9 @@ objects
 refs
 ```
 
-### Committing the changes
+## Committing the changes
 
-#### Check the status of your git repo
+### Check the status of your git repo
 
 ```bash
 $ git status
@@ -86,7 +84,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-#### Stage the changes to commit
+### Stage the changes to commit
 
 ```bash
 $ git add README.md
@@ -100,7 +98,7 @@ Changes to be committed:
   new file:   README.md
 ```
 
-#### Commit the staged changes with a message
+### Commit the staged changes with a message
 
 ```bash
 $ git commit -m "first-commit"
@@ -118,7 +116,7 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-### Track the progress with ```git log``` command
+## Track the progress with ```git log``` command
 
 ```bash
 $ git log
@@ -130,9 +128,9 @@ Date:   Thu Aug 27 12:42:29 2020 +0530
 
 ```
 
-### Create Python Virtual Environment
+## Create Python Virtual Environment
 
-#### Check python version
+### Check python version
 
 it should be >= 3.5
 
@@ -141,12 +139,12 @@ $ python --version
 Python 3.7.6
 ```
 
-#### Create a virtual environment
+### Create a virtual environment
 
 There are two modules that can be used to achieve this.
 Use either of the following tools
 
-##### Using python's native _venv_
+#### Using python's native _venv_
 
 - ```-m venv```: Use the module "venv" (This is available by default
 with python installation)
@@ -156,7 +154,7 @@ with python installation)
 $ python -m venv env-my-flask-app
 ```
 
-##### Using pip's _virtualenv_ for python < 3.3
+#### Using pip's _virtualenv_ for python < 3.3
 
 First you have to install _virtualenv_ globally. Run the below command
 
@@ -170,7 +168,7 @@ Now you can create the environment.
 $ virtualenv env-my-flask-app
 ```
 
-#### Environment folder
+### Environment folder
 
 The above command should have created a folder called ```env-my-flask-app```
 
@@ -186,11 +184,11 @@ lib
 pyvenv.cfg
 ```
 
-### Activating the virtual environment
+## Activating the virtual environment
 
 You will need to do this each time you enter the terminal/ command prompt
 
-#### For unix based OS
+### For unix based OS
 
 ```bash
 $ source env-my-flask-app/bin/activate
@@ -206,7 +204,7 @@ $ source env-my-flask-app/bin/activate
 By activating the environment, you will see the ```(env-my-flask-app)``` in your
 command line
 
-#### Deactivating environment
+### Deactivating environment
 
 1. Environment will be deactivated when you close your terminal/command prompt
 2. You can explicitly deactivate by running the following command
@@ -216,7 +214,7 @@ command line
 $
 ```
 
-### Preventing git to track the environment folder
+## Preventing git to track the environment folder
 
 Your environment folder is specific to your machine. You are not supposed to
 check-in (Committing) the folder to git.
@@ -235,7 +233,7 @@ Untracked files:
   env-my-flask-app/
 ```
 
-#### Add ```.gitignore``` file
+### Add ```.gitignore``` file
 
 Enter the below contents in .gitignore
 
@@ -243,7 +241,7 @@ Enter the below contents in .gitignore
 env-my-flask-app/
 ```
 
-#### Checking the repo status
+### Checking the repo status
 
 Because we have updated ```.gitignore``` with the environment folder,
 git will not track the folder
@@ -263,7 +261,7 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-#### Stage and Commit the changes
+### Stage and Commit the changes
 
 ```bash
 (env-my-flask-app) $  git add -A
@@ -291,13 +289,13 @@ Date:   Thu Aug 27 12:42:29 2020 +0530
     first-commit
 ```
 
-### Enhancing .gitignore
+## Enhancing .gitignore
 
 There are bunch of other files/folder we do not want to track. Typical patterns
 are provided in [.gitignore](.gitignore). Copy the contents of this file
 to your .gitignore. Then commit the changes
 
-### Install Flask dependency
+## Install Flask dependency
 
 ```bash
 (env-my-flask-app) $ python -m pip install Flask
@@ -306,7 +304,7 @@ Collecting Flask
 .....logs....logs
 ```
 
-#### Getting the installed package list
+### Getting the installed package list
 
 ```bash
 (env-my-flask-app) $ python -m pip freeze
@@ -320,7 +318,7 @@ Werkzeug==1.0.1
 
 Installing Flask resulted in installing the dependency packages for Flask.
 
-#### Writing the dependency modules list the ```requirements.txt```
+### Writing the dependency modules list the ```requirements.txt```
 
 ```bash
 (env-my-flask-app) $ python -m pip freeze > requirements.txt
@@ -337,7 +335,7 @@ MarkupSafe==1.1.1
 Werkzeug==1.0.1
 ```
 
-### Starting Flask script
+## Starting Flask script
 
 - Create ```app``` folder
 Create ```app/run.py``` and enter the below contents
@@ -366,7 +364,7 @@ if __name__ == '__main__':
     app.run()
 ```
 
-### Start Flask server app
+## Start Flask server app
 
 ```bash
 $ python app/run.py
@@ -378,7 +376,7 @@ $ python app/run.py
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-#### Using the flask app in a browsers
+### Using the flask app in a browsers
 
 Goto a web browser of your choice, you can open any of the below urls.
 All three urls are same.
@@ -391,7 +389,7 @@ All three urls are same.
 - ```127.0.0.1```: Default IP of your machine
 - ```localhost```: Default host name of your machine
 
-### Creating Github repository
+## Creating Github repository
 
 - You should have a github account
 - Goto your github account (Mine is github.com/sravanrekandar)
@@ -400,7 +398,7 @@ All three urls are same.
 ![Create github repository1](images/creating-github-repository1.png)
 ![Create github repository2](images/creating-github-repository2.png)
 
-### Connecting local repo to the github repo
+## Connecting local repo to the github repo
 
 - Once you create a repo in github, you will see instructions to connect
 your local repo to the remote(on the github cloud) repo
@@ -432,7 +430,7 @@ To cross check the remote info, run the below command
 https://github.com/sravanrekandar/flask-drive.git
 ```
 
-### Pushing your changes to remote repo
+## Pushing your changes to remote repo
 
 ```bash
 $ git push -u origin master
@@ -443,23 +441,23 @@ $ git push -u origin master
 Now goto your github repository page and refresh. If everything goes fine,
 you must see the uploaded files.
 
-### Deleting the local repository and fetching from github
+## Deleting the local repository and fetching from github
 
-#### Deactivate before you come out of the folder
+### Deactivate before you come out of the folder
 
 ```bash
 (env-my-flask-app) $ deactivate
 $
 ```
 
-#### Delete the folder
+### Delete the folder
 
 ```bash
 $ cd ..
 $ rm -rf flask-drive
 ```
 
-#### Cloning the cloud repository to your local machine
+### Cloning the cloud repository to your local machine
 
 You will find the url of your git repo in your github repo page.
 
@@ -479,7 +477,7 @@ Receiving objects: 100% (30/30), 1.28 MiB | 58.00 KiB/s, done.
 Resolving deltas: 100% (7/7), done.
 ```
 
-### Creating virtual environment with name 'env'
+## Creating virtual environment with name 'env'
 
 ```bash
 $ cd flask-drive
@@ -488,13 +486,13 @@ $ source env/bin/activate
 (env) $
 ```
 
-### Install dependencies with requirements.txt
+## Install dependencies with requirements.txt
 
 ```bash
 (env) $ python -m pip install -r requirements.txt
 ```
 
-### Starting the application
+## Starting the application
 
 ```bash
 (env) $ python app/run.py

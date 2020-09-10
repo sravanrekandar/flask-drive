@@ -1,6 +1,4 @@
-# Flask-Drive Chapter 02
-
-## Flask App routes - Serving HTML pages
+# Flask-Drive Chapter 02: Flask App routes - Serving HTML pages
 
 Update your app/run.py with the below content
 
@@ -26,7 +24,7 @@ if __name__ == "__main__":
 
 ```
 
-### Explanation: Two routes in this app
+## Explanation: Two routes in this app
 
 - ```@app.route('/')``` this is the default route.
 Also called as home route. This is returning a text string.
@@ -108,6 +106,11 @@ def about():
 if __name__ == "__main__":
     app.run()
 ```
+
+_**Note:** You need to restart the app each time you make changes to the code._
+
+- To kill the process: Ctrl/Cmd + C
+- To stat the app - ```python app/run.py```
 
 ### HTML: Hyper Text Markup language
 
@@ -248,6 +251,11 @@ if __name__ == "__main__":
     app.run()
 
 ```
+
+_**Note:** You need to restart the app each time you make changes to the code._
+
+- To kill the process: Ctrl/Cmd + C
+- To stat the app - ```python app/run.py```
 
 ### Contact pge is handled now
 
