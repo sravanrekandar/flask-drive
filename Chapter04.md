@@ -1,4 +1,4 @@
-# Flask-Drive Chapter 04: Deploying the app in cloud
+# Flask-Drive Chapter 04: Deploying the python app in heroku cloud
 
 So far you are running your application in your machine. This is not servable to others. Meaning, if you want another person to access your application, you need to deploy the application on to a cloud environment and make it available thorough a [URL](https://en.wikipedia.org/wiki/URL).
 
@@ -158,6 +158,15 @@ The first line is your command, the sub sequent lines are the out put.
 
 ```bash
 $ flask-drive % git push heroku-staging master
+```
+
+- ```git push``` is the command
+- ```heroku-staging``` is the remote name
+- ```master``` is the branch name. For now you have only one branch.
+
+#### Output logs
+
+```bash
 Enumerating objects: 64, done.
 Counting objects: 100% (64/64), done.
 Delta compression using up to 8 threads
@@ -236,27 +245,21 @@ $ source env/bin/activate
 ```bash
 (env) $ touch Procfile
 (env) $ touch app/__init__
-(env) $ touch app/wsgi.py
 (env) $ touch runtime.txt
 ```
 
 1. **Procfile** (_No Extension Required_). When heroku tries to start you app, Heroku looks for this file for command(s) to start your app. Write the below code to Procfile
 
     ```text
-    web: gunicorn app.wsgi --log-file -
+    web: gunicorn app.run:app  --log-file -
     ```
+
+    - **app.run** look for the module app/run.py
+    - **:app** use the exported variable ```app``` in app/run.py
+    - For full details, _[refer this Article](https://devcenter.heroku.com/articles/python-gunicorn)_
 
 2. **app/__init__** in order to access the files in app/ through import statements, we need this file. We can leave this file empty.
-3. **app/wsgi.py** _WSGI: Web Server Gateway Interface_. This would be the entry file to start our app. We will import ```app``` variable from ```run.py``` and start the application. Write the below code to the file.
-
-    ```python
-    from .run import app
-
-    application = app.run()
-    ```
-
-    The variable name ```application`` is important. This is imported by the command in Procfile by default
-4. **runtime.txt** Specify a Python version so that Heroku uses the right Python Runtime to run our app with. Fill the file with the below contents
+3. **runtime.txt** Specify a Python version so that Heroku uses the right Python Runtime to run our app with. Fill the file with the below contents
 
     ```text
     python-3.7.6
@@ -268,6 +271,11 @@ Now that you had configured ```Procfile```, you can test the setup using the fol
 
 ```bash
 (env) $ heroku local
+```
+
+##### Output
+
+```bash
 2:22:08 PM web.1 |  [2020-09-15 14:22:08 +0530] [18145] [INFO] Starting gunicorn 20.0.4
 2:22:08 PM web.1 |  [2020-09-15 14:22:08 +0530] [18145] [INFO] Listening at: http://0.0.0.0:5000 (18145)
 2:22:08 PM web.1 |  [2020-09-15 14:22:08 +0530] [18145] [INFO] Using worker: sync
@@ -280,10 +288,104 @@ Now that you had configured ```Procfile```, you can test the setup using the fol
 2:22:08 PM web.1 |   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
+open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) and check whether the app is working fine. If the app is working fine, you can go to next step.
+
 #### Deploy the changes to heroku staging
 
-commit the changes before executing the below command
+_commit the changes before executing the below command._
 
 ```bash
 (env) $ git push heroku-staging master
+```
+
+##### output logs
+
+```bash
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 363 bytes | 363.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Python app detected
+remote:  !     Python has released a security update! Please consider upgrading to python-3.7.9
+remote:        Learn More: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> No change in requirements detected, installing from cache
+remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 60.2M
+remote: -----> Launching...
+remote:        Released v16
+remote:        https://sravan-flask-drive-staging.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/sravan-flask-drive-staging.git
+   c88813c..a7bde0a  master -> master
+(env) sravan@Sravans-MacBook-Pro flask-drive % rm app/wsgi.py 
+(env) sravan@Sravans-MacBook-Pro flask-drive % git add -A
+(env) sravan@Sravans-MacBook-Pro flask-drive % git commit -m "Procfile experiments"
+[master daabd55] Procfile experiments
+ 2 files changed, 1 insertion(+), 5 deletions(-)
+ delete mode 100644 app/wsgi.py
+(env) sravan@Sravans-MacBook-Pro flask-drive % git push heroku-staging master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 362 bytes | 362.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Python app detected
+remote:  !     Python has released a security update! Please consider upgrading to python-3.7.9
+remote:        Learn More: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> No change in requirements detected, installing from cache
+remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 60.3M
+remote: -----> Launching...
+remote:        Released v17
+remote:        https://sravan-flask-drive-staging.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/sravan-flask-drive-staging.git
+   a7bde0a..daabd55  master -> master
+```
+
+#### Open the deployed app
+
+If you had read the logs, its clearly saying the app is deployed to heroku and you can access the app at [https://sravan-flask-drive-staging.herokuapp.com/](https://sravan-flask-drive-staging.herokuapp.com/)
+
+If you open the link in a browser, you must see the application
+
+#### Deploy the changes to heroku prod
+
+_commit the changes before executing the below command._
+
+```bash
+(env) $ git push heroku-prod master
+```
+
+I am omitting the logs here, you must see something similar to the staging logs except the url. In my case, the url is [https://sravan-flask-drive-prod.herokuapp.com/](https://sravan-flask-drive-prod.herokuapp.com/)
+
+### Commit the changes to github
+
+Now both staging and prod apps deployed, it is important to save your code to github.com because this is your primary place to manage your code.
+
+```bash
+(env) $ git push origin master
 ```

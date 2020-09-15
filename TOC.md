@@ -1,16 +1,4 @@
-# Flask - Drive
-
-This is a step by step guide to learn E2E Flask application
-creation, and deployment.
-
-## Chapters
-
-1. [Flask-Drive Chapter 01: Create basic application and upload to github](Chapter01.md)
-2. [Flask-Drive Chapter 02: Flask App routes - Serving HTML pages](Chapter02.md)
-3. [Flask-Drive Chapter 03: Automating Development: Auto Reload Using Flask](Chapter03.md)
-4. [Flask-Drive Chapter 04: Deploying the python app in heroku cloud](Chapter04.md)
-
-## Table of Contents
+# Flask Drive
 
 - [Flask-Drive Chapter 01: Create basic application and upload to github](Chapter01.md#Flask-Drive-Chapter-01:-Create-basic-application-and-upload-to-github)
   - [Create a directory for your experiment](Chapter01.md#Create-a-directory-for-your-experiment)
@@ -79,7 +67,7 @@ creation, and deployment.
   - [Keeping the app start commands in a file (Windows)](Chapter03.md#Keeping-the-app-start-commands-in-a-file-Windows)
     - [Run the app using the start script (Windows)](Chapter03.md#Run-the-app-using-the-start-script-Windows)
   - [Adding environment activation to automated script ```start_dev.bat```](Chapter03.md#Adding-environment-activation-to-automated-script-startdevbat)
-- [Flask-Drive Chapter 04: Deploying the app in cloud](Chapter04.md#Flask-Drive-Chapter-04:-Deploying-the-app-in-cloud)
+- [Flask-Drive Chapter 04: Deploying the python app in heroku cloud](Chapter04.md#Flask-Drive-Chapter-04:-Deploying-the-python-app-in-heroku-cloud)
   - [Cloud providers](Chapter04.md#Cloud-providers)
   - [Working on Heroku](Chapter04.md#Working-on-Heroku)
     - [Verify your installation](Chapter04.md#Verify-your-installation)
