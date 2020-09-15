@@ -329,7 +329,7 @@ remote:
 remote: Verifying deploy... done.
 To https://git.heroku.com/sravan-flask-drive-staging.git
    c88813c..a7bde0a  master -> master
-(env) sravan@Sravans-MacBook-Pro flask-drive % rm app/wsgi.py 
+(env) sravan@Sravans-MacBook-Pro flask-drive % rm app/wsgi.py
 (env) sravan@Sravans-MacBook-Pro flask-drive % git add -A
 (env) sravan@Sravans-MacBook-Pro flask-drive % git commit -m "Procfile experiments"
 [master daabd55] Procfile experiments
