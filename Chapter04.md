@@ -280,3 +280,10 @@ Now that you had configured ```Procfile```, you can test the setup using the fol
 2:22:08 PM web.1 |   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
+#### Deploy the changes to heroku staging
+
+commit the changes before executing the below command
+
+```bash
+(env) $ git push heroku-staging master
+```
