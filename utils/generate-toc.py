@@ -17,7 +17,7 @@ def generateToC(md_string, prefix):
         line_text = line[level + 1 :]
         link_text = line_text.strip().lower()
         link_text = line_text.replace(" ", "-")
-        link_text = re.sub("[^a-zA-Z\d\s:-]", "", link_text)
+        link_text = re.sub("[^a-zA-Z\\d\\s:-]", "", link_text)
 
         link_text = prefix + "#" + link_text
 
@@ -25,14 +25,13 @@ def generateToC(md_string, prefix):
         if link_text in links_dictionary:
             link_num = links_dictionary[link_text]
             links_dictionary[link_text] += 1
-            link_text += str(linknum)
+            link_text += str(link_num)
         else:
             links_dictionary[link_text] = 1
 
         line_link = "[{}]({})".format(line_text, link_text)
-        lpad = " " * ((level - 1) * 2)
-        last_line_level = level
-        formatted_lines.append(f"{lpad}- {line_link}")
+        left_pading = " " * ((level - 1) * 2)
+        formatted_lines.append(f"{left_pading}- {line_link}")
 
     # print('\n'.join(formatted_lines))
     return "\n".join(formatted_lines)

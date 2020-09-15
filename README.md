@@ -79,7 +79,7 @@ creation, and deployment.
   - [Keeping the app start commands in a file (Windows)](Chapter03.md#Keeping-the-app-start-commands-in-a-file-Windows)
     - [Run the app using the start script (Windows)](Chapter03.md#Run-the-app-using-the-start-script-Windows)
   - [Adding environment activation to automated script ```start_dev.bat```](Chapter03.md#Adding-environment-activation-to-automated-script-startdevbat)
-- [Flask-Drive Chapter 04: Deploying the app in cloud](Chapter04.md#Flask-Drive-Chapter-04:-Deploying-the-app-in-cloud)
+- [Flask-Drive Chapter 04: Deploying the python app in heroku cloud](Chapter04.md#Flask-Drive-Chapter-04:-Deploying-the-python-app-in-heroku-cloud)
   - [Cloud providers](Chapter04.md#Cloud-providers)
   - [Working on Heroku](Chapter04.md#Working-on-Heroku)
     - [Verify your installation](Chapter04.md#Verify-your-installation)
