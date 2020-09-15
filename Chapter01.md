@@ -134,7 +134,7 @@ By default all the installs happen through ```pip``` install in global space. i.
 
 ![Venv-1](images/venv-1.png)
 
-And we can not store two versions of a single library in the global space. If there is a need that two applications require different versions of the same library. Then there would be conflicts and one of the apps would fail if you upgrade the version of the dependency. 
+And we can not store two versions of a single library in the global space. If there is a need that two applications require different versions of the same library. Then there would be conflicts and one of the apps would fail if you upgrade the version of the dependency.
 
 ![Venv-2](images/venv-2.png)
 
