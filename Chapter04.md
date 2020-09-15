@@ -215,6 +215,8 @@ By running your command, few things are happening here
 
 _[Read Ref Article](https://devcenter.heroku.com/articles/python-gunicorn)_
 
+#### Install GUnicorn module
+
 Activate your virtual environment and install ```gunicorn```
 
 ```bash
@@ -229,24 +231,52 @@ $ source env/bin/activate
 (env) $ pip freeze > requirements.txt
 ```
 
-Create a file named ```Procfile```. This is important for Heroku
+#### Create few files required for configuration
 
 ```bash
 (env) $ touch Procfile
-```
-
-Fille the file with the below contents
-
-```text
-web: gunicorn gettingstarted.wsgi
-```
-
-We need to specify a Python version so that Heroku uses the right Python Runtime to run our app with. Create a file called ```runtime.txt``` with the following code
-
-```bash
+(env) $ touch app/__init__
+(env) $ touch app/wsgi.py
 (env) $ touch runtime.txt
 ```
 
-```text
-python-3.7.6
+1. **Procfile** (_No Extension Required_). When heroku tries to start you app, Heroku looks for this file for command(s) to start your app. Write the below code to Procfile
+
+    ```text
+    web: gunicorn app.wsgi --log-file -
+    ```
+
+2. **app/__init__** in order to access the files in app/ through import statements, we need this file. We can leave this file empty.
+3. **app/wsgi.py** _WSGI: Web Server Gateway Interface_. This would be the entry file to start our app. We will import ```app``` variable from ```run.py``` and start the application. Write the below code to the file.
+
+    ```python
+    from .run import app
+
+    application = app.run()
+    ```
+
+    The variable name ```application`` is important. This is imported by the command in Procfile by default
+4. **runtime.txt** Specify a Python version so that Heroku uses the right Python Runtime to run our app with. Fill the file with the below contents
+
+    ```text
+    python-3.7.6
+    ```
+
+#### Test the setup locally
+
+Now that you had configured ```Procfile```, you can test the setup using the following command. If everything goes fine, you can see the app running on port 5000
+
+```bash
+(env) $ heroku local
+2:22:08 PM web.1 |  [2020-09-15 14:22:08 +0530] [18145] [INFO] Starting gunicorn 20.0.4
+2:22:08 PM web.1 |  [2020-09-15 14:22:08 +0530] [18145] [INFO] Listening at: http://0.0.0.0:5000 (18145)
+2:22:08 PM web.1 |  [2020-09-15 14:22:08 +0530] [18145] [INFO] Using worker: sync
+2:22:08 PM web.1 |  [2020-09-15 14:22:08 +0530] [18148] [INFO] Booting worker with pid: 18148
+2:22:08 PM web.1 |   * Serving Flask app "app.run" (lazy loading)
+2:22:08 PM web.1 |   * Environment: production
+2:22:08 PM web.1 |     WARNING: This is a development server. Do not use it in a production deployment.
+2:22:08 PM web.1 |     Use a production WSGI server instead.
+2:22:08 PM web.1 |   * Debug mode: off
+2:22:08 PM web.1 |   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
+
