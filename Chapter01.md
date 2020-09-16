@@ -83,6 +83,7 @@ These files/folders in .git/ are created when you ran ```git int``` command
 ```bash
 $ ls -a .git | awk '{print $NF}'
 ```
+
 **Output log**
 
 ```bash
@@ -190,15 +191,15 @@ Date:   Thu Aug 27 12:42:29 2020 +0530
 
 By default all the installs happen through ```pip``` install in global space. i.e, every application will access to the same dependencies.
 
-![Venv-1](images/venv-1.png)
+![Venv-1](images/venv-1.svg)
 
 And we can not store two versions of a single library in the global space. If there is a need that two applications require different versions of the same library. Then there would be conflicts and one of the apps would fail if you upgrade the version of the dependency.
 
-![Venv-2](images/venv-2.png)
+![Venv-2](images/venv-2.svg)
 
 The solution is to create virtual environments for each applications. In this way, we can keep the app specific dependencies dedicated to the app.
 
-![Venv-3](images/venv-3.png)
+![Venv-3](images/venv-3.svg)
 
 ### Check python version
 
