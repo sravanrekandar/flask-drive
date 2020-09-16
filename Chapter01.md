@@ -206,6 +206,11 @@ it should be >= 3.5
 
 ```bash
 $ python --version
+```
+
+**Output logs**
+
+```bash
 Python 3.7.6
 ```
 
@@ -244,10 +249,22 @@ The above command should have created a folder called ```env-my-flask-app```
 
 ```bash
 $ ls | awk '{print $NF}'
+```
+
+**Output logs**
+
+```bash
 README.md
 env-my-flask-app
+```
 
+```bash
 $ ls env-my-flask-app | awk '{print $NF}'
+```
+
+**Output logs**
+
+```bash
 bin
 include
 lib
@@ -263,6 +280,7 @@ You will need to do this each time you enter the terminal/ command prompt
 ```bash
 $ source env-my-flask-app/bin/activate
 (env-my-flask-app) $
+```
 
 ### For windows OS
 
@@ -292,6 +310,11 @@ check-in (Committing) the folder to git.
 ```bash
 $ source env-my-flask-app/bin/activate
 (env-my-flask-app) $ git status
+```
+
+**Output logs**
+
+```bash
 On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -318,6 +341,11 @@ git will not track the folder
 
 ```bash
 git status
+```
+
+**Output logs**
+
+```bash
 On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -337,11 +365,23 @@ no changes added to commit (use "git add" and/or "git commit -a")
 (env-my-flask-app) $  git add -A
 
 (env-my-flask-app) $  git commit -m "Adding git ignore and some documentation"
+```
+
+**Output logs**
+
+```bash
 [master f67feca] Adding git ignore and some documentation
  2 files changed, 200 insertions(+), 2 deletions(-)
  create mode 100644 .gitignore
+```
 
+```bash
 (env-my-flask-app) $  git status
+```
+
+**Output logs**
+
+```bash
 On branch master
 nothing to commit, working tree clean
 
@@ -369,6 +409,11 @@ to your .gitignore. Then commit the changes
 
 ```bash
 (env-my-flask-app) $ python -m pip install Flask
+```
+
+**Output logs**
+
+```bash
 Collecting Flask
 .....logs....logs (Replacing the logs for brevity)
 .....logs....logs
@@ -378,6 +423,11 @@ Collecting Flask
 
 ```bash
 (env-my-flask-app) $ python -m pip freeze
+```
+
+**Output logs**
+
+```bash
 click==7.1.2
 Flask==1.1.2
 itsdangerous==1.1.0
@@ -394,9 +444,21 @@ Installing Flask resulted in installing the dependency packages for Flask.
 (env-my-flask-app) $ python -m pip freeze > requirements.txt
 
 (env-my-flask-app) $ ls
-README.md    env-my-flask-app  requirements.txt
+```
 
+**Output logs**
+
+```bash
+README.md    env-my-flask-app  requirements.txt
+```
+
+```bash
 (env-my-flask-app) $ cat requirements.txt
+```
+
+**Output logs**
+
+```bash
 click==7.1.2
 Flask==1.1.2
 itsdangerous==1.1.0
@@ -438,6 +500,11 @@ if __name__ == '__main__':
 
 ```bash
 $ python app/run.py
+```
+
+**Output logs**
+
+```bash
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
@@ -468,22 +535,27 @@ All three urls are same.
 ![Create github repository1](images/creating-github-repository1.png)
 ![Create github repository2](images/creating-github-repository2.png)
 
-## Connecting local repo to the github repo
+## Connecting remote to out local repo
+
+Remote repository(repo) means the repo exists remotely on a cloud.
 
 - Once you create a repo in github, you will see instructions to connect
 your local repo to the remote(on the github cloud) repo
 
 ![Connecting Local Repo to Remote](images/connect-local-repo-to-remote.png)
 
-_*Note: Replace my repo url with your respective reo urls*_
+_*Note: Replace my repo url with your respective repo url*_
 
-Connecting command
+Add Remote command:
 
 ```bash
 $ git remote add origin https://github.com/sravanrekandar/flask-drive.git
 ```
 
-In Git, "master" is a naming convention for a branch. After cloning (downloading)
+- ```git remote add``` is the command
+- ```origin``` is the user given name for the remote connection. it is an industry standard to use the name ```origin```. In the coming tutorials, we will add multiple remotes to the local repository.
+
+In Git, **"master"** is the default branch. After cloning (downloading)
 a project from a remote server, the resulting local repository has a single local
 branch: the so-called "master" branch. This means that "master" can be seen as
 a repository's "default" branch. [Read more](https://www.git-tower.com/learn/git/glossary/master#:~:text=In%20Git%2C%20"master"%20is,a%20repository%27s%20"default"%20branch.)
