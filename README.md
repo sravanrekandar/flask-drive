@@ -1,7 +1,15 @@
 # Flask - Drive
 
-This is a step by step guide to learn E2E Flask application
-creation, and deployment.
+This is a step by step guide to create and deploy a python flask application.
+
+## Prerequisites
+
+- Basic knowledge of python language
+- Python should have been installed on your machine
+- Git should have been installed on your machine
+- Unix terminal should be available
+  - For Mac and Linux, default terminal would be enough
+  - For Windows, you can install Gitbash
 
 ## Chapters
 

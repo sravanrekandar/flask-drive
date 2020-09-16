@@ -1,5 +1,9 @@
 # Flask-Drive Chapter 01: Create basic application and upload to github
 
+Open your terminal/ gitbash and follow the tutorial.
+
+_Note: Read all the output logs. You need to understand them._
+
 ## Create a directory for your experiment
 
 ```bash
@@ -10,11 +14,17 @@ $ cd flask-drive
 
 ## Initiate Git repository
 
+We will use ```git init``` command to initiate a git repository
+
 ```bash
 $ git init
 ```
 
 ## Create README.md and enter some text in the file
+
+```.md``` files are markdown files. Markdown is a simple and powerful documentation language.
+
+_[Reference Article - MArkdown Syntax](https://www.markdownguide.org/basic-syntax/)_
 
 ```bash
 $ touch README.md
@@ -22,10 +32,17 @@ $ touch README.md
 
 ## Check the available files in your folder(aka directory)
 
+The outputs will display my username **sravan**. You will see yours.
+
 ### list all contents with details
 
 ```bash
 $ ls -la
+```
+
+**Output log**
+
+```bash
 drwxr-xr-x   4 sravan  staff   128 Aug 27 12:32 .
 drwxr-xr-x  81 sravan  staff  2592 Aug 27 12:28 ..
 drwxr-xr-x  10 sravan  staff   320 Aug 27 12:32 .git
@@ -36,6 +53,11 @@ drwxr-xr-x  10 sravan  staff   320 Aug 27 12:32 .git
 
 ```bash
 $ ls -a
+```
+
+**Output log**
+
+```bash
 .    ..    .git    README.md
 ```
 
@@ -43,6 +65,11 @@ $ ls -a
 
 ```bash
 $ ls -a | awk '{print $NF}'
+```
+
+**Output log**
+
+```bash
 .
 ..
 .git
@@ -55,6 +82,10 @@ These files/folders in .git/ are created when you ran ```git int``` command
 
 ```bash
 $ ls -a .git | awk '{print $NF}'
+```
+**Output log**
+
+```bash
 .
 ..
 FETCH_HEAD
@@ -73,6 +104,11 @@ refs
 
 ```bash
 $ git status
+```
+
+**Output log**
+
+```bash
 On branch master
 
 No commits yet
@@ -89,6 +125,11 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```bash
 $ git add README.md
 $ git status
+```
+
+**Output log**
+
+```bash
 On branch master
 
 No commits yet
@@ -102,11 +143,23 @@ Changes to be committed:
 
 ```bash
 $ git commit -m "first-commit"
+```
+
+**Output log**
+
+```bash
 [master (root-commit) 157be18] first-commit
  1 file changed, 41 insertions(+)
  create mode 100644 README.md
+```
 
+```bash
 $ git status
+```
+
+**Output log**
+
+```bash
 On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -120,6 +173,11 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ```bash
 $ git log
+```
+
+**Output log**
+
+```bash
 commit 157be18f961275a48a89b025a9f1d4216edb559c (HEAD -> master)
 Author: Sravan Kumar <sravan.rekandar@drishya.ai>
 Date:   Thu Aug 27 12:42:29 2020 +0530
