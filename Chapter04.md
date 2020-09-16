@@ -150,7 +150,7 @@ origin https://github.com/sravanrekandar/flask-drive.git (fetch)
 origin https://github.com/sravanrekandar/flask-drive.git (push)
 ```
 
-![Git Remote connection Depiction](images/git-remotes.png)
+![Git Remote connection Depiction](images/git-remotes.svg)
 
 ### Pushing your local changes to Heroku Staging App
 
