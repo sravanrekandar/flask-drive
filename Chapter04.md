@@ -248,6 +248,10 @@ $ source env/bin/activate
 (env) $ touch runtime.txt
 ```
 
+##### For windows users
+
+Along with the ```Procfile```, create a file named ```Procfile.windows```
+
 1. **Procfile** (_No Extension Required_). When heroku tries to start you app, Heroku looks for this file for command(s) to start your app. Write the below code to Procfile
 
     ```text
@@ -265,12 +269,24 @@ $ source env/bin/activate
     python-3.7.6
     ```
 
+4. **Procfile.windows** The ```gunicorn``` will not run on windows. To circumvent this, we create this file. Add the following content
+
+    ```text
+    web: python app/run.py
+    ```
+
 #### Test the setup locally
 
 Now that you had configured ```Procfile```, you can test the setup using the following command. If everything goes fine, you can see the app running on port 5000
 
 ```bash
 (env) $ heroku local
+```
+
+#### Test the setup locally on windows
+
+```bat
+(env) > heroku local -f Procfile.windows
 ```
 
 ##### Output
