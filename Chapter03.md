@@ -14,14 +14,14 @@ To circumvent this problem, we will use
 ### For Unix based systems
 
 ```bash
-(env) $ export FLASK_APP=app.py
+(env) $ export FLASK_APP=app/run.py
 (env) $ export FLASK_ENV=development
 ```
 
 ### For windows
 
 ```bat
-(env) > set FLASK_APP=app.py
+(env) > set FLASK_APP=app/run.py
 (env) > set FLASK_ENV=development
 ```
 
@@ -62,11 +62,15 @@ create a file called ```start_dev.sh```
 
 ```bash
 #!/bin/bash
+python -m venv env
+source env/bin/activate
 
-export FLASK_APP=app.py
+pip install -r requirements.txt
+
+export FLASK_APP=app/run.py
 export FLASK_ENV=development
 
-flask run --port 8085
+flask run --port 8085 
 ```
 
 ### Enabling the file to get executed
@@ -87,35 +91,28 @@ This is a single time operation
 
 create a file called ```start_dev.bat```
 
-```bash
-set FLASK_APP=app.py
-set FLASK_ENV=development
+```bat
+call python -m venv env
+call env/Scripts/activate
 
-flask run --port 8085
+call pip install -r requirements.txt
+
+call set FLASK_APP=app/run.py
+call set FLASK_ENV=development
+
+call flask run --port 8085 
+
 ```
 
 ### Run the app using the start script (Windows)
 
-```bash
-(env) $ start_dev.bat
+```bat
+(env) > start_dev.bat
 ```
 
-## Adding environment activation to automated script ```start_dev.bat```
+## Sequence of steps in automated script
 
-```bash
-#!/bin/bash
-python -m venv env
-source env/bin/activate
-
-pip install -r requirements.txt
-
-export FLASK_APP=app.py
-export FLASK_ENV=development
-
-flask run --port 8085
-```
-
-Now, each time you use the ```start_dev.bat```,
+Now, each time you use the ```start_dev.bat``` or ```start_dev.sh```,
 
 1. The script checks whether there is an environment
     - If there is not environment, it creates one
