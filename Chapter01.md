@@ -20,6 +20,28 @@ We will use ```git init``` command to initiate a git repository
 $ git init
 ```
 
+## ```touch``` command to create files in unix based systems
+
+The ```touch``` command works in unix based systems.
+
+Example:
+
+```bash
+$ touch file_name
+```
+
+## ```type``` command to create files in windows
+
+If you are using windows, and if you have gitbash, ```touch``` command works.
+
+For some reason, you are sticking to windows default terminal Command Prompt, you can use the ```type``` command
+
+Example:
+
+```bat
+> type nul > file_name
+```
+
 ## Create README.md and enter some text in the file
 
 ```.md``` files are markdown files. Markdown is a simple and powerful documentation language.
