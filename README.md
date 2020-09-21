@@ -13,7 +13,7 @@ This is a step by step guide to create and deploy a python flask application.
 
 ## Chapters
 
-0. [Python Installation on Windows](PythonInstallationOnWindows.md.md)
+0. [Prerequisites](Prerequisites.md)
 1. [Flask-Drive Chapter 01: Create basic application and upload to github](Chapter01.md)
 2. [Flask-Drive Chapter 02: Flask App routes - Serving HTML pages](Chapter02.md)
 3. [Flask-Drive Chapter 03: Automating Development: Auto Reload Using Flask](Chapter03.md)

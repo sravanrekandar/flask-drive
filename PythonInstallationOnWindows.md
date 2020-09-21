@@ -1,5 +1,9 @@
 # Python InstallationOnWindows.md
 
+For this tutorial, we use the easy way - Anaconda Shell.
+
+_Another Option: You can install python directly [from here](https://www.python.org/downloads/)_
+
 ## Use Anaconda to manage your python installations
 
 - You can download Anaconda here: [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
@@ -19,6 +23,10 @@ Python 3.8.3
 (base) C:\Users\sravan.rekandar> pip --version
 pip 20.1.1 from C:\ProgramData\Anaconda3\lib\site-packages\pip (python 3.8)
 ```
+
+- For this tutorial you can continue to use Anaconda Command Prompt
+
+## (Optional) To make python and pip available out side Anaconda Shell
 
 - To know the folders where python and pip are available, run the following commands
 

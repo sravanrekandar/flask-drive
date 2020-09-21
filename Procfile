@@ -1,1 +1,1 @@
-web: gunicorn app.run:app  --log-file -
+web: waitress-serve --listen "*:$PORT" app.run:app
