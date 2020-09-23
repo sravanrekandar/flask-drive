@@ -16,7 +16,8 @@ def generateToC(md_string, prefix):
 
         line_text = line[level + 1 :]
         link_text = line_text.strip().lower()
-        link_text = line_text.replace(" ", "-")
+        link_text = link_text.replace(":", "")
+        link_text = link_text.replace(" ", "-")
         link_text = re.sub("[^a-zA-Z\\d\\s:-]", "", link_text)
 
         link_text = prefix + "#" + link_text
@@ -43,6 +44,8 @@ def main():
         {"file_name": "Chapter02.md", "prefix": "Chapter02.md"},
         {"file_name": "Chapter03.md", "prefix": "Chapter03.md"},
         {"file_name": "Chapter04.md", "prefix": "Chapter04.md"},
+        {"file_name": "Chapter05.md", "prefix": "Chapter05.md"},
+        {"file_name": "Chapter06.md", "prefix": "Chapter06.md"},
     ]
 
     markdowns = []
