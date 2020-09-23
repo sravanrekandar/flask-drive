@@ -7,9 +7,15 @@ This is a step by step guide to create and deploy a python flask application.
 - Basic knowledge of python language
 - Python should have been installed on your machine
 - Git should have been installed on your machine
-- Unix terminal should be available
+- Unix/Linux terminal should be available
+  Our production environment - Final place where our app would be deployed, is [Heroku](https://www.heroku.com/). This is a Linux Environment. So, I suggest you to have a linux environment while developing your app
   - For Mac and Linux, default terminal would be enough
-  - For Windows, you can install Gitbash
+  - For Windows, Use one of the below. The preference is in the same order presented
+    1. [Use Windows Subsystem for linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+    2. [Cygwin](https://www.cygwin.com/)
+    3. [Gitbash - comes with Git Installation](https://git-scm.com/downloads)
+
+_Note: Knowledge about Linux is import for Developer for most of the deployments are on Linux. There is a learning curve. But its worth learning Linux_
 
 ## Chapters
 
