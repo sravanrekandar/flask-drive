@@ -15,8 +15,18 @@
 
 <body>
     <div class="container">
+        {% include 'nav.html' %}
         <h1>{{title}}</h1>
-        <p>{{page_content}}</p>
+        {% if title == 'Home' %}
+        {% include 'home.html' %}
+        {% elif title == 'About' %}
+        {% include 'about.html' %}
+        {% elif title == 'Contact' %}
+        {% include 'contact.html' %}
+        {% else %}
+        {% include 'not-found.html' %}
+        {% endif %}
+
     </div>
 
     <!-- Optional JavaScript -->
